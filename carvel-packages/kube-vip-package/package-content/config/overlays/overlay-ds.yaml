@@ -1,0 +1,26 @@
+#@ load("@ytt:overlay", "overlay")
+#@ load("@ytt:data", "data")
+
+#@ if data.values.kube_vip_image:
+#@overlay/match by=overlay.subset({"kind":"DaemonSet"})
+---
+kind: DaemonSet
+spec:
+  template:
+    spec:
+      containers:
+      #@overlay/match by=overlay.subset({"name":"kube-vip"})
+      - image: #@ data.values.kube_vip_image
+#@ end
+
+#@ if data.values.agent_node_selector:
+#@overlay/match by=overlay.subset({"kind":"DaemonSet"})
+---
+kind: DaemonSet
+spec:
+  template:
+    spec:
+    #@overlay/match missing_ok=True
+      nodeSelector: #@ data.values.agent_node_selector
+        
+#@ end

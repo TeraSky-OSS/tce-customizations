@@ -1,0 +1,7 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  name: tce-extensions.terasky.com
+  namespace: default
+spec:
+  displayName: Deploy an opinionated set of TCE Extensions

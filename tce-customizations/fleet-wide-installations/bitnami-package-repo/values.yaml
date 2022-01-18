@@ -1,0 +1,8 @@
+frontend: 
+  service:
+    type: LoadBalancer
+kubeappsapis:
+  enabledPlugins:
+    - kapp-controller
+postgresql: 
+  postgresqlPassword: "vSaABgj8Tz"

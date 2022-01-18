@@ -1,0 +1,14 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha3
+kind: ClusterResourceSet
+metadata:
+  name: kyverno-crs
+spec:
+  clusterSelector:
+    matchExpressions:
+    - key: tkg.tanzu.vmware.com/cluster-name
+      operator: Exists
+      values: []
+  resources:
+  - kind: ConfigMap
+    name: kyverno-crs
+  strategy: ApplyOnce

@@ -1,0 +1,15 @@
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: fluent-bit
+spec:
+  packageRef:
+    refName: fluent-bit.community.tanzu.vmware.com
+    versionSelection:
+      constraints: 1.7.5
+      prereleases: {}
+  serviceAccountName: tce-extensions-installer
+  values:
+  - secretRef:
+      name: fluent-bit-values

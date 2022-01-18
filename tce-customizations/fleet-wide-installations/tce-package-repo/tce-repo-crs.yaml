@@ -1,0 +1,30 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha3
+kind: ClusterResourceSet
+metadata:
+  name: tce-package-repository-crs
+spec:
+  clusterSelector:
+    matchExpressions:
+    - key: tkg.tanzu.vmware.com/cluster-name
+      operator: Exists
+      values: []
+  resources:
+  - kind: ConfigMap
+    name: tce-package-repository-crs
+  strategy: ApplyOnce
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tce-package-repository-crs
+data:
+  data: |
+    apiVersion: packaging.carvel.dev/v1alpha1
+    kind: PackageRepository
+    metadata:
+      name: tce-repo
+      namespace: tanzu-package-repo-global
+    spec:
+      fetch:
+        imgpkgBundle:
+          image: projects.registry.vmware.com/tce/main:0.9.1

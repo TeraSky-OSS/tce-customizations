@@ -1,0 +1,12 @@
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: prometheus
+spec:
+  packageRef:
+    refName: prometheus.community.tanzu.vmware.com
+    versionSelection:
+      constraints: 2.27.0
+      prereleases: {}
+  serviceAccountName: tce-extensions-installer

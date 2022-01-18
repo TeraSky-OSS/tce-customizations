@@ -1,0 +1,30 @@
+apiVersion: addons.cluster.x-k8s.io/v1alpha3
+kind: ClusterResourceSet
+metadata:
+  name: bitnami-package-repository-crs
+spec:
+  clusterSelector:
+    matchExpressions:
+    - key: tkg.tanzu.vmware.com/cluster-name
+      operator: Exists
+      values: []
+  resources:
+  - kind: ConfigMap
+    name: bitnami-package-repository-crs
+  strategy: ApplyOnce
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bitnami-package-repository-crs
+data:
+  data: |
+    apiVersion: packaging.carvel.dev/v1alpha1
+    kind: PackageRepository
+    metadata:
+      name: bitnami-repo
+      namespace: tanzu-package-repo-global
+    spec:
+      fetch:
+        imgpkgBundle:
+          image: ghcr.io/terasky-oss/bitnami-package-repo:2022-01-18
