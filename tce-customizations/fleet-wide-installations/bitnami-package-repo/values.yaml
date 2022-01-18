@@ -5,4 +5,4 @@ kubeappsapis:
   enabledPlugins:
     - kapp-controller
 postgresql: 
-  postgresqlPassword: "vSaABgj8Tz"
+  postgresqlPassword: "AbC123dEf456"
