@@ -1,10 +1,10 @@
 # TCE Customization Repo
 This repository containes experimental examples for how to customize TCE to provision clusters with additional capabilities beyond the standard offering of TCE.
 The repository is not well documented currently and does not follow in all cases best practices and should be used as a starting point / point of reference and not considered by any means as production ready at this point. 
-There are 3 main folders in the Repo:
-2. tce-customizations - YAML / YTT templates for customizing TCE
-3. tce-helper-scripts - A set of scripts to help manage TCE
-4. carvel-packages - A set of custom packages built for use on TCE
+There are 3 main folders in the Repo:  
+1. tce-customizations - YAML / YTT templates for customizing TCE  
+2. tce-helper-scripts - A set of scripts to help manage TCE  
+3. carvel-packages - A set of custom packages built for use on TCE  
   
 ## Key Functionality included in this repo
 ### 1. Create Clusters with Multiple Machine Deployments
